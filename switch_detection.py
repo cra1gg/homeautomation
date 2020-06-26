@@ -3,6 +3,7 @@ import time
 import os
 import subprocess
 from pyvesync import VeSync
+import pyautogui
 
 manager = VeSync("cfdt123@gmail.com", "Marlenne123")
 manager.login()
@@ -18,6 +19,7 @@ on = True
 device = pywemo.discovery.device_from_description(url, None)
 if device.get_state() == 1:
     my_switch.turn_on()
+    pyautogui.click(100, 100)
     cmdCommand = "nircmd.exe monitor on"   #specify your cmd command
     process = subprocess.Popen(cmdCommand.split(), stdout=subprocess.PIPE)
     on = True
@@ -51,6 +53,7 @@ while True:
     if device.get_state() == 1:
         if not on:
             on = True
+            pyautogui.click(100, 100)
             my_switch.turn_on()
             print("Turning monitor on")
             cmdCommand = "nircmd.exe monitor on"   #specify your cmd command
