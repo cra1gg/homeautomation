@@ -14,7 +14,7 @@ my_switch = manager.outlets[0]
 address = "192.168.1.177"
 port = pywemo.ouimeaux_device.probe_wemo(address)
 url = 'http://%s:%i/setup.xml' % (address, port)
-
+pyautogui.FAILSAFe = False
 on = True
 device = pywemo.discovery.device_from_description(url, None)
 if device.get_state() == 1:
